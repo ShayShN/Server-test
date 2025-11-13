@@ -33,6 +33,8 @@ def rail_decrypt(text: str):
     rail_text_de = rail_action_de(text)
     return {"decrypted": rail_text_de}
 
+list_abc = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+
 
 file_txt = "name.txt"
 
@@ -40,8 +42,6 @@ def load_data(name):
     with open(file_txt, "a") as f:
         return f.write(name) 
           
-list_abc = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-
 def caesar_encrypt(string: str, k: int):
     st = string.replace(" ", "")
     word1 = ""
@@ -50,7 +50,6 @@ def caesar_encrypt(string: str, k: int):
         word1 += list_abc[index % 26]
     return word1
       
-  
 def caesar_decryp(string: str, k: int):
     st = string.replace(" ", "")
     word1 = ""
@@ -58,7 +57,7 @@ def caesar_decryp(string: str, k: int):
         index = list_abc.index(i) -k
         word1 += list_abc[index % 26]
     return word1
-  
+ 
 def rail_action_en(text: str):
     txt = text.replace(" ", "")
     word_even = ""
@@ -71,7 +70,6 @@ def rail_action_en(text: str):
             word_odd += list_abc[index]
     return word_even + word_odd
 
-
 def rail_action_de(text: str):
     txt = text.replace(" ", "")
     word2 = ""
@@ -82,6 +80,7 @@ def rail_action_de(text: str):
         else:
             word2 += list_abc[index]
     return word2
+
 
 
 if __name__=="__main__":
